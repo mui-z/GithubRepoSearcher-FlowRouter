@@ -18,7 +18,8 @@ struct GithubRepoGatewayImpl: GithubRepoGateway {
         let url = URL(string: "https://api.github.com/search/repositories?q=\(searchKeyWord)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
 
         let result = await AF.request(url, headers: headers)
-                             .serializingDecodable(RepositorySearchResultRes.self).result
+                             .serializingDecodable(RepositorySearchResultRes.self)
+                             .result
 
         switch result {
         case .success(let repos):

@@ -63,13 +63,14 @@ protocol FlowRouter {
 
 ```swift
 class SearchFlowRouter: ObservableObject, FlowRouter {
+    
     static let shared = SearchFlowRouter()
     
     @Published
     var navigationPath: NavigationPath = .init()
-    
-    private(set) var nextTransitionRoute = .unknown
-    
+
+    private(set) var nextTransitionRoute: PushRoute = .unknown
+
     func triggerScreenTransition(route: PushRoute) {
         navigationPath.append(route)
         nextTransitionRoute = route
@@ -77,6 +78,11 @@ class SearchFlowRouter: ObservableObject, FlowRouter {
 
     func nextTransitionScreen() -> some View {
         nextTransitionRoute.view
+    }
+
+    func clearPath() {
+        navigationPath = .init()
+        nextTransitionRoute = .unknown
     }
 
     enum PushRoute: Hashable {

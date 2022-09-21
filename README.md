@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/github/license/mui-z/GithubRepoSearcher?labelColor=333333)](https://github.com/mui-z/GithubRepoSearcher/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-iOS-lightgrey?labelColor=333333)](https://github.com/mui-z/GithubRepoSearcher)
 
-Clean Architecture (+ FlowRouter) Github Repo Search App.
+FlowRouter Github Repo Search App.
 
 <img src="https://user-images.githubusercontent.com/93278577/191031084-81d1a3c7-867e-44c3-be5d-59568d75b9ec.gif" height=400 />
 

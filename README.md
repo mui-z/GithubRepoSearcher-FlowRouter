@@ -47,26 +47,26 @@ A `FlowRouter` is responsible for single flow control.
 
 ## Usage
 
-// TODO: Write description here...
-
 ```swift
-protocol FlowRouter {
+protocol FlowRouter: Hashable {
     associatedtype PushRoute: Hashable
     associatedtype NextScreen: View
 
+    var id: UUID { get }
+
     var navigationPath: NavigationPath { get set }
+
+    var nextTransitionRoute: PushRoute { get }
 
     func triggerScreenTransition(route: PushRoute)
     func nextTransitionScreen() -> NextScreen
-    func clearPath()
 }
 ```
 
 ```swift
-class SearchFlowRouter: ObservableObject, FlowRouter {
-    
-    static let shared = SearchFlowRouter()
-    
+final class SearchFlowRouter: ObservableObject, FlowRouter {
+    let id = UUID()
+
     @Published
     var navigationPath: NavigationPath = .init()
 
@@ -78,23 +78,19 @@ class SearchFlowRouter: ObservableObject, FlowRouter {
     }
 
     func nextTransitionScreen() -> some View {
-        nextTransitionRoute.view
+        nextTransitionRoute.nextView(router: self)
     }
+}
 
-    func clearPath() {
-        navigationPath = .init()
-        nextTransitionRoute = .unknown
-    }
-
+extension SearchFlowRouter {
     enum PushRoute: Hashable {
         case unknown
         case detail(repo: GithubRepo)
 
-        @ViewBuilder
-        var view: some View {
+        func nextView(router: SearchFlowRouter) -> some View {
             switch self {
             case .detail(let repo):
-                DetailScreen(repo: repo)
+                return DetailScreen(repo: repo, router: router)
             case .unknown:
                 fatalError("no set next transition screen.")
             }

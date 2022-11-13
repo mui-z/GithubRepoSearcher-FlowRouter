@@ -19,5 +19,5 @@ struct GithubRepo: Identifiable, Hashable {
 struct GithubUser: Identifiable, Hashable {
     let id: String
     let name: String
-    let avatorUrl: String
+    let avatarUrl: String
 }

@@ -20,7 +20,7 @@ struct DetailScreen: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                AsyncImage(url: URL(string: repo.user.avatorUrl)!, content: { image in
+                AsyncImage(url: URL(string: repo.user.avatarUrl)!, content: { image in
                     image.resizable()
                 }, placeholder: {
                     ProgressView()

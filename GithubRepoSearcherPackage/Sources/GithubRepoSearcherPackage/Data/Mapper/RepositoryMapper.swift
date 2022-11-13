@@ -21,6 +21,6 @@ extension RepositoryRes {
 
 extension OwnerRes {
     func toUser() -> GithubUser {
-        GithubUser(id: nodeId, name: login, avatorUrl: avatarUrl)
+        GithubUser(id: nodeId, name: login, avatarUrl: avatarUrl)
     }
 }

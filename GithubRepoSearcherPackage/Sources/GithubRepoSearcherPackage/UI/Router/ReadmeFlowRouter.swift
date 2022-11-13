@@ -9,8 +9,6 @@ import SwiftUI
 
 class ReadmeFlowRouter: ObservableObject, FlowRouter {
 
-    static let shared = ReadmeFlowRouter()
-
     @Published
     var navigationPath: NavigationPath = .init()
 
@@ -21,11 +19,6 @@ class ReadmeFlowRouter: ObservableObject, FlowRouter {
 
     func nextTransitionScreen() -> some View {
         Text("")
-    }
-
-    func clearPath() {
-        navigationPath = .init()
-        nextTransitionRoute = .unknown
     }
 
     enum PushRoute: Hashable {

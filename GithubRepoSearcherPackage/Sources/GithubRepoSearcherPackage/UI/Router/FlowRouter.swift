@@ -15,5 +15,4 @@ protocol FlowRouter {
 
     func triggerScreenTransition(route: PushRoute)
     func nextTransitionScreen() -> NextScreen
-    func clearPath()
 }

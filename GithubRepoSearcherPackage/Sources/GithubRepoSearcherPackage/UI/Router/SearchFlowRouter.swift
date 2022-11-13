@@ -10,8 +10,6 @@ import SwiftUI
 
 final class SearchFlowRouter: ObservableObject, FlowRouter {
 
-    static let shared = SearchFlowRouter()
-
     @Published
     var navigationPath: NavigationPath = .init()
 
@@ -24,11 +22,6 @@ final class SearchFlowRouter: ObservableObject, FlowRouter {
 
     func nextTransitionScreen() -> some View {
         nextTransitionRoute.view
-    }
-
-    func clearPath() {
-        navigationPath = .init()
-        nextTransitionRoute = .unknown
     }
 }
 

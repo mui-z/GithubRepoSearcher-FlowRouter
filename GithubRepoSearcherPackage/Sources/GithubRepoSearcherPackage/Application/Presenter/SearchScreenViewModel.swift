@@ -16,7 +16,11 @@ class SearchScreenViewModel: ObservableObject {
     @Published var searchedKeyword = ""
     @Published var isLoading = false
 
-    private var router = SearchFlowRouter.shared
+    private var router: SearchFlowRouter
+
+    public init(router: SearchFlowRouter) {
+        self.router = router
+    }
 
     private var useCase = Container.githubRepoSearchUseCase()
 

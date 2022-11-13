@@ -12,7 +12,7 @@ struct DetailScreen: View {
     let repo: GithubRepo
 
     @StateObject
-    var readmeFlowRouter = ReadmeFlowRouter.shared
+    var readmeFlowRouter = ReadmeFlowRouter()
 
     @StateObject
     var viewModel = DetailScreenViewModel()
@@ -59,9 +59,7 @@ struct DetailScreen: View {
             Spacer()
         }
             .padding()
-            .fullScreenCover(isPresented: $viewModel.isMarkdownScreenPresent, onDismiss: {
-                readmeFlowRouter.clearPath()
-            }) {
+            .fullScreenCover(isPresented: $viewModel.isMarkdownScreenPresent) {
                 NavigationStack(path: $readmeFlowRouter.navigationPath) {
                     ReadmeScreen(repo: repo)
                         .navigationBarTitle("README.md")

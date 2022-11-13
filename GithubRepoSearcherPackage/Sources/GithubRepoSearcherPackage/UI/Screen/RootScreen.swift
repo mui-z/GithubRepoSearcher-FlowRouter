@@ -12,11 +12,12 @@ public struct RootScreen: View {
     public init() {
     }
 
-    @StateObject private var flowRouter = SearchFlowRouter.shared
+    @StateObject private var flowRouter = SearchFlowRouter()
     public var body: some View {
         NavigationStack(path: $flowRouter.navigationPath) {
-            SearchScreen()
+            SearchScreen(router: flowRouter)
                 .navigationBarTitleDisplayMode(.large)
+                .environmentObject(flowRouter)
         }
     }
 }

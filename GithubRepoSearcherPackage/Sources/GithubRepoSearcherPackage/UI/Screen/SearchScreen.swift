@@ -13,7 +13,11 @@ struct SearchScreen: View {
     @State var searchKeyword = ""
     @State var hasSearched = false
 
-    @StateObject var viewModel = SearchScreenViewModel()
+    @StateObject var viewModel: SearchScreenViewModel
+
+    public init(router: SearchFlowRouter) {
+        self._viewModel = StateObject(wrappedValue: SearchScreenViewModel(router: router))
+    }
 
     var body: some View {
         VStack {
@@ -76,11 +80,5 @@ struct SearchScreen: View {
                     }
             }
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchScreen()
     }
 }

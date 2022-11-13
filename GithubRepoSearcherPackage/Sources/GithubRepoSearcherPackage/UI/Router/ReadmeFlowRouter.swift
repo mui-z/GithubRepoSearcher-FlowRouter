@@ -8,6 +8,7 @@
 import SwiftUI
 
 class ReadmeFlowRouter: ObservableObject, FlowRouter {
+    let id = UUID()
 
     @Published
     var navigationPath: NavigationPath = .init()
@@ -23,5 +24,15 @@ class ReadmeFlowRouter: ObservableObject, FlowRouter {
 
     enum PushRoute: Hashable {
         case unknown
+    }
+}
+
+extension ReadmeFlowRouter {
+    static func ==(lhs: ReadmeFlowRouter, rhs: ReadmeFlowRouter) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

@@ -8,12 +8,8 @@
 import Foundation
 import SwiftUI
 
-final class SearchFlowRouter: ObservableObject, FlowRouter, Hashable {
-    static func ==(lhs: SearchFlowRouter, rhs: SearchFlowRouter) -> Bool {
-        lhs.id == rhs.id
-    }
-
-    private let id = UUID().uuidString
+final class SearchFlowRouter: ObservableObject, FlowRouter {
+    let id = UUID()
 
     @Published
     var navigationPath: NavigationPath = .init()
@@ -26,27 +22,32 @@ final class SearchFlowRouter: ObservableObject, FlowRouter, Hashable {
     }
 
     func nextTransitionScreen() -> some View {
-        nextTransitionRoute.view
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+        nextTransitionRoute.nextView(router: self)
     }
 }
 
 extension SearchFlowRouter {
     enum PushRoute: Hashable {
         case unknown
-        case detail(repo: GithubRepo, router: SearchFlowRouter)
+        case detail(repo: GithubRepo)
 
-        @ViewBuilder
-        var view: some View {
+        func nextView(router: SearchFlowRouter) -> some View {
             switch self {
-            case .detail(let repo, let router):
-                DetailScreen(repo: repo, router: router)
+            case .detail(let repo):
+                return DetailScreen(repo: repo, router: router)
             case .unknown:
                 fatalError("no set next transition screen.")
             }
         }
+    }
+}
+
+extension SearchFlowRouter {
+    static func ==(lhs: SearchFlowRouter, rhs: SearchFlowRouter) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
     }
 }

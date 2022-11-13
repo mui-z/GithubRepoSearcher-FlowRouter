@@ -16,7 +16,7 @@ class SearchScreenViewModel: ObservableObject {
     @Published var searchedKeyword = ""
     @Published var isLoading = false
 
-    private var router: SearchFlowRouter
+    private let router: SearchFlowRouter
 
     public init(router: SearchFlowRouter) {
         self.router = router

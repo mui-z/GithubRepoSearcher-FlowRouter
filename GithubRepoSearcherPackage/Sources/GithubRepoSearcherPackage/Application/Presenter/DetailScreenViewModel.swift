@@ -16,4 +16,8 @@ class DetailScreenViewModel: ObservableObject {
     init(router: SearchFlowRouter) {
         self.router = router
     }
+
+    func pop() {
+        router.navigationPath.removeLast()
+    }
 }

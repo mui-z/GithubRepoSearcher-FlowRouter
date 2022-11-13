@@ -15,10 +15,7 @@ struct SearchScreen: View {
 
     @StateObject var viewModel: SearchScreenViewModel
 
-    var router: SearchFlowRouter
-
     public init(router: SearchFlowRouter) {
-        self.router = router
         self._viewModel = StateObject(wrappedValue: SearchScreenViewModel(router: router))
     }
 
@@ -79,7 +76,7 @@ struct SearchScreen: View {
                 }
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        viewModel.triggerTransition(route: .detail(repo: repo, router: router))
+                        viewModel.triggerTransition(route: .detail(repo: repo))
                     }
             }
         }

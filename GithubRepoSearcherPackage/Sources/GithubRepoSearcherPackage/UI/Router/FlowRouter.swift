@@ -5,9 +5,11 @@
 import Foundation
 import SwiftUI
 
-protocol FlowRouter {
+protocol FlowRouter: Hashable {
     associatedtype PushRoute: Hashable
     associatedtype NextScreen: View
+
+    var id: UUID { get }
 
     var navigationPath: NavigationPath { get set }
 

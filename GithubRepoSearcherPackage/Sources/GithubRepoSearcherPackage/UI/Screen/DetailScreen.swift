@@ -64,7 +64,9 @@ struct DetailScreen: View {
             Spacer()
         }
             .padding()
-            .fullScreenCover(isPresented: $viewModel.isMarkdownScreenPresent) {
+            .fullScreenCover(isPresented: $viewModel.isMarkdownScreenPresent, onDismiss: {
+                viewModel.pop()
+            }) {
                 NavigationStack(path: $readmeFlowRouter.navigationPath) {
                     ReadmeScreen(repo: repo)
                         .navigationBarTitle("README.md")

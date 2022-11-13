@@ -12,7 +12,8 @@ public struct RootScreen: View {
     public init() {
     }
 
-    @StateObject private var flowRouter = SearchFlowRouter()
+    @StateObject
+    private var flowRouter = SearchFlowRouter()
 
     public var body: some View {
         NavigationStack(path: $flowRouter.navigationPath) {

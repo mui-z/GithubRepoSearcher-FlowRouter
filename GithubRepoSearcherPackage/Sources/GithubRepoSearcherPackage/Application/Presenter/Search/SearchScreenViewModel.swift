@@ -12,17 +12,22 @@ import SwiftUI
 
 @MainActor
 class SearchScreenViewModel: ObservableObject {
-    @Published var githubRepos = [GithubRepo]()
-    @Published var searchedKeyword = ""
-    @Published var isLoading = false
+    @Published
+    var githubRepos = [GithubRepo]()
+
+    @Published
+    var searchedKeyword = ""
+
+    @Published
+    var isLoading = false
 
     private let router: SearchFlowRouter
+
+    private var useCase = Container.githubRepoSearchUseCase()
 
     public init(router: SearchFlowRouter) {
         self.router = router
     }
-
-    private var useCase = Container.githubRepoSearchUseCase()
 
     func searchRepos(keyword: String) {
         Task {

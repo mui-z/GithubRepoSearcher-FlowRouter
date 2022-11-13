@@ -10,10 +10,14 @@ import Factory
 
 struct SearchScreen: View {
 
-    @State var searchKeyword = ""
-    @State var hasSearched = false
+    @State
+    var searchKeyword = ""
 
-    @StateObject var viewModel: SearchScreenViewModel
+    @State
+    var hasSearched = false
+
+    @StateObject
+    var viewModel: SearchScreenViewModel
 
     public init(router: SearchFlowRouter) {
         self._viewModel = StateObject(wrappedValue: SearchScreenViewModel(router: router))

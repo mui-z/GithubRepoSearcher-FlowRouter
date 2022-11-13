@@ -10,7 +10,7 @@ FlowRouter GitHub Repo Search App.
 
 This app architecture is based on Clean Architecture.
 
-A `Router` exists for each view. However, there is a `FlowRouter` for each flow.
+A `FlowRouter` exists for each Flow.
 
 A `FlowRouter` is responsible for single flow control.
 

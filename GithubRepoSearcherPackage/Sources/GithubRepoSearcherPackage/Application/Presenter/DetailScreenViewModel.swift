@@ -10,4 +10,10 @@ import SwiftUI
 class DetailScreenViewModel: ObservableObject {
     @Published
     var isMarkdownScreenPresent = false
+
+    private var router: SearchFlowRouter
+
+    init(router: SearchFlowRouter) {
+        self.router = router
+    }
 }

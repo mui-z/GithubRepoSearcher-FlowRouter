@@ -15,7 +15,12 @@ struct DetailScreen: View {
     var readmeFlowRouter = ReadmeFlowRouter()
 
     @StateObject
-    var viewModel = DetailScreenViewModel()
+    var viewModel: DetailScreenViewModel
+
+    init(repo: GithubRepo, router: SearchFlowRouter) {
+        self.repo = repo
+        self._viewModel = StateObject(wrappedValue: DetailScreenViewModel(router: router))
+    }
 
     var body: some View {
         VStack(alignment: .leading) {

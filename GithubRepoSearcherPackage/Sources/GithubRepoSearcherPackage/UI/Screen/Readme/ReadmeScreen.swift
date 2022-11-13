@@ -16,7 +16,6 @@ struct ReadmeScreen: View {
 
     let repo: GithubRepo
 
-
     let errorMsg =
         """
         Could not fetch.

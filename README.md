@@ -8,9 +8,7 @@ FlowRouter GitHub Repo Search App.
 
 ## About
 
-This app architecture is based on Clean Architecture and VIPER.
-
-However, `FlowRouter` is not the same `Router` in VIPER.
+This app architecture is based on Clean Architecture.
 
 A `Router` exists for each view. However, there is a `FlowRouter` for each flow.
 

@@ -127,3 +127,4 @@ DerivedData/
 .DS_Store
 
 .swiftpm/
+.idea/

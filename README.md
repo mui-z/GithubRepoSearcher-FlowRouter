@@ -8,8 +8,6 @@ FlowRouter GitHub Repo Search App.
 
 ## About
 
-This app architecture is based on Clean Architecture.
-
 A `FlowRouter` exists for each Flow.
 
 A `FlowRouter` is responsible for single flow control.

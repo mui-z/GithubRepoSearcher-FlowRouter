@@ -10,7 +10,7 @@ FlowRouter GitHub Repo Search App.
 
 A `FlowRouter` exists for each Flow.
 
-A `FlowRouter` is responsible for single flow control.
+It is responsible for single flow control.
 
 
 ```mermaid

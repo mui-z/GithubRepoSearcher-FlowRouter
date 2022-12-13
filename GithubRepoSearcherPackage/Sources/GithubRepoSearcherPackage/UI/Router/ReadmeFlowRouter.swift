@@ -26,13 +26,3 @@ class ReadmeFlowRouter: ObservableObject, FlowRouter {
         case unknown
     }
 }
-
-extension ReadmeFlowRouter {
-    static func ==(lhs: ReadmeFlowRouter, rhs: ReadmeFlowRouter) -> Bool {
-        lhs.id == rhs.id
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}

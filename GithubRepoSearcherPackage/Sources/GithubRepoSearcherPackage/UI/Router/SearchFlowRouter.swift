@@ -41,13 +41,3 @@ extension SearchFlowRouter {
         }
     }
 }
-
-extension SearchFlowRouter {
-    static func ==(lhs: SearchFlowRouter, rhs: SearchFlowRouter) -> Bool {
-        lhs.id == rhs.id
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}

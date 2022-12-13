@@ -18,3 +18,13 @@ protocol FlowRouter: Hashable {
     func triggerScreenTransition(route: PushRoute)
     func nextTransitionScreen() -> NextScreen
 }
+
+extension FlowRouter {
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
